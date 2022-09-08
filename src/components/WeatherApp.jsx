@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import WeatherForm from "./WeatherForm";
+import WeatherMainInfo from "./WeatherMainInfo";
 
 const WeatherApp = () => {
   const [weather, setWeather] = useState(null);
@@ -42,6 +43,7 @@ const WeatherApp = () => {
             <>||||</>
           )}
         </button>
+        <WeatherMainInfo weather={weather} />
       </div>
     </div>
   );
