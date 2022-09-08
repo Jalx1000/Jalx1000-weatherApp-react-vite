@@ -1,4 +1,6 @@
 import React from "react";
+import CardDay from "./CardDay";
+import MoreInfo from "./MoreInfo";
 
 export default function WeatherMainInfo({ weather }) {
   // console.log(weather);
@@ -21,7 +23,25 @@ export default function WeatherMainInfo({ weather }) {
         <p>{weather?.current.wind_kph}</p>
       </div>
 
-      
+      <div className="my-4 flex justify-around items-center" >
+        <MoreInfo descripcion={"Uv"} valor={weather?.current.uv} />
+        <MoreInfo descripcion={"Gust"} valor={`${weather?.current.gust_kph}`} />
+        <MoreInfo descripcion={"Wind dir"} valor={weather?.current.wind_dir} />
+      </div>
+
+      <div className="flex justify-around">
+        {weather?.forecast.forecastday.map((data) => {
+          return (
+            <CardDay
+              key={data.date_epoch}
+              day={data.date}
+              img={data.day.condition.icon}
+              temp={data.day.maxtemp_c}
+              todo={weather.date}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
