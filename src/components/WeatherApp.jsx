@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import WeatherForm from "./WeatherForm";
 
 const WeatherApp = () => {
   const [weather, setWeather] = useState(null);
+  const [burguer, setBurguer] = useState(false);
 
   useEffect(() => {
     loadInfo();
@@ -21,9 +23,7 @@ const WeatherApp = () => {
       const json = await request.json();
       setWeather(json);
     } catch (error) {
-      console.log(
-        "Debe crear archivo .env como se muestra en el README  " + error
-      );
+      console.log("Debe crear archivo .env como se muestra en el README  "/n + error);
     }
   }
 
@@ -34,7 +34,15 @@ const WeatherApp = () => {
 
   return (
     <div className="h-screen p-3">
-      <div className="text-gray-600"></div>
+      <div className="text-gray-600">
+        <button onClick={()=>setBurguer(!burguer)}> 
+          {burguer ? (
+            <WeatherForm onChangeCity={handleChangeCity} />
+          ) : (
+            <>||||</>
+          )}
+        </button>
+      </div>
     </div>
   );
 };
