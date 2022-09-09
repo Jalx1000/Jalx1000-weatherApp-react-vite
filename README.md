@@ -35,8 +35,9 @@ The most reliable Australian weather data is hosted by Australian Bureau of Mete
 + Clone this repo `git clone git@github.com:Jalx1000/weatherApp-react-vite.git`
 + `cd weatherApp-react-vite`
 + run `npm install`
++ run `npm run dev`
 
-## API keys
+## Public API keys 
 + Get your API key from https://www.weatherapi.com/my/
 + Create a new file `.env.local`:
 ```jsx
